@@ -1,0 +1,12 @@
+{
+  "content": "content/page-2.html",
+  "meta_title": "Articles about Stapy - Page 2",
+  "meta_description": "My personal blog about Stapy - Page 2",
+  "title": "Articles",
+  "tags": [
+    "sitemap"
+  ],
+  "enabled": "1",
+  "robots": "index,follow",
+  "menu.active": "index.html"
+}

@@ -1,0 +1,178 @@
+<h2>Heading 2</h2>
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+<button class="button secondary modal-sample">Info</button>
+<button class="button primary modal-sample success">Success</button>
+<button class="button primary modal-sample warning">Warning</button>
+<button class="button primary modal-sample error">Error</button>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var modalSample = document.getElementsByClassName('modal-sample');
+        for (var i = 0; i < modalSample.length; i++) {
+            modalSample[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                var types = ['error', 'warning', 'success'];
+                var type = 'info';
+                for (var j = 0; j < types.length; j++) {
+                    if (this.className.indexOf(types[j]) !== -1) {
+                        type = types[j];
+                    }
+                }
+                if (type === 'info') {
+                    stapy.modal('This is a vanilla JS simple modal with custom content', 'info center');
+                } else {
+                    stapy.loader(true);
+                    setTimeout(function () {
+                        stapy.loader(false);
+                        stapy.modal(type.charAt(0).toUpperCase() + type.slice(1) + '!', type + ' center');
+                    }, 1500);
+                }
+            });
+        }
+    });
+</script>
+
+<h3>Heading 3</h3>
+
+<p>Lorem ipsum dolor <strong>sit amet</strong>, consectetur adipiscing elit, sed <em>do eiusmod tempor incididunt</em> ut labore et dolore magna aliqua <kbd>CTRL</kbd>. Ut enim ad minim veniam, quis <a href="#">nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <mark>voluptate</mark> velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+<figure>
+    <img src="{{ url }}media/forest.jpg" alt="Photo of a black and white landscape with forest and river" width="600" height="414" />
+    <figcaption>Unsplash &copy; <a href="https://unsplash.com/fr/@lucabravo">Luca Bravo</a></figcaption>
+</figure>
+
+<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui <a href="#">officia deserunt</a> mollit anim id est laborum.</p>
+
+<hr />
+
+<ul>
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+    <li>List item 4</li>
+</ul>
+
+<ol>
+    <li>Ordered list item 1</li>
+    <li>Ordered list item 2</li>
+    <li>Ordered list item 3</li>
+    <li>Ordered list item 4</li>
+</ol>
+
+<hr />
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Color</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td>45</td>
+                <td>Green</td>
+            </tr>
+            <tr>
+                <td>Jane Doe</td>
+                <td>43</td>
+                <td>Blue</td>
+            </tr>
+            <tr>
+                <td>Jonnie Doe</td>
+                <td>12</td>
+                <td>Red</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<hr />
+
+<blockquote>
+    The Web is more a social creation than a technical one. I designed it for a social effect—to help people work together—and not as a technical toy.<br />
+    <br />
+    Tim Berners-Lee
+</blockquote>
+
+<hr />
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Hello World&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<hr />
+
+<form method="post" action="{{ url }}{{ _path }}" id="contact">
+    <p>
+        <label for="name">Name <span class="required">*</span></label>
+        <input type="text" id="name" name="name" required="required" value="John Doe" />
+    </p>
+    <p>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" value="john.doe@example.com" />
+    </p>
+    <p>
+        <label for="color">Color</label>
+        <select id="color" name="color">
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+        </select>
+    </p>
+    <p>
+        <label>Age</label>
+        <label for="type_0_18"><input id="type_0_18" name="age" type="radio" value="0-18" checked="checked" /> <span>0-18</span></label>
+        <label for="type_19_49"><input id="type_19_49" name="age" type="radio" value="19-49" /> <span>19-49</span></label>
+        <label for="type_50_99"><input id="type_50_99" name="age" type="radio" value="50-99" /> <span>50-99</span></label>
+    </p>
+    <p>
+        <label for="message">Message <span class="required">*</span></label>
+        <textarea id="message" name="message" required="required">Hello!</textarea>
+    </p>
+    <p>
+        <label for="terms">
+            <input name="terms" type="checkbox" id="terms" value="1" required="required" checked="checked" />
+            <span>I agree to the <a href="#">terms and conditions</a></span> <span class="required">*</span>
+        </label>
+    </p>
+    <p class="right required">
+        * Required fields
+    </p>
+    <p class="center">
+        <button type="submit" class="button primary">Send</button>
+    </p>
+</form>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var contact = document.getElementById('contact');
+        contact.addEventListener('submit', function (event) {
+            event.preventDefault();
+            stapy.loader(true);
+            setTimeout(function () {
+                stapy.loader(false);
+                var message = '<p class="center">Your message has been sent</p>';
+                message += '<ul>';
+                var data = stapy.formData(contact);
+                for (var key in data) {
+                    message += '<li><strong>' + key + ':</strong> ' + data[key].replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') + '</li>';
+                }
+                message += '</ul>';
+                stapy.modal(message, 'success');
+            }, 1000);
+        });
+    });
+</script>

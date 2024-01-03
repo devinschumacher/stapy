@@ -1,0 +1,9 @@
+{
+  "welcome": "Hello",
+  "content": "content/child.html",
+  "simple_block": "template/block/simple.html",
+  "child_block": "template/block/child.html",
+  "child_block.staging": "",
+  "query_test": "2",
+  "tags": ["test", "my tag", "\"quoted tag\""]
+}

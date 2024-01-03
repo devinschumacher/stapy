@@ -1,0 +1,61 @@
+<h2>Step 1</h2>
+
+<p>
+    Open the HTML layout configuration file:
+</p>
+
+<pre>
+<strong>source</strong>
++--- <strong>layout</strong>
+     +--- html.json
+</pre>
+
+<p>
+    Add a new entry with the block template path:
+</p>
+
+<pre>
+{
+    ...
+    "<strong>banner</strong>": "template/block/banner.html"
+    ...
+}
+</pre>
+
+<h2>Step 2</h2>
+
+<p>
+    Create the new block template file with the HTML content:
+</p>
+
+<pre>
+<strong>source</strong>
++--- <strong>template</strong>
+     +--- <strong>block</strong>
+          +--- banner.html
+</pre>
+
+<pre><code>&lt;div id=&quot;banner&quot;&gt;
+    Welcome!
+&lt;/div&gt;
+</code></pre>
+
+<h2>Step 3</h2>
+
+<p>
+    Add the new block in the page template:
+</p>
+
+<pre>
+<strong>source</strong>
++--- <strong>template</strong>
+     +--- default.html
+</pre>
+
+<pre><code>&lt;!-- ... --&gt;
+&lt;main&gt;
+    \{% banner %\}
+    &lt;!-- ... --&gt;
+&lt;/main&gt;
+&lt;!-- ... --&gt;
+</code></pre>

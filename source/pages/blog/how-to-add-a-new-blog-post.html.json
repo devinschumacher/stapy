@@ -1,0 +1,15 @@
+{
+  "content": "content/blog/how-to-add-a-new-blog-post.html",
+  "meta_title": "How to add a new blog post?",
+  "meta_description": "Learn in this article how to add a new blog post: add a new json with page data and the HTML content file.",
+  "title": "How to add a new blog post?",
+  "date": "2022-12-23",
+  "author": "John Doe",
+  "intro": "Learn in this article how to add a new blog post: add a new json with page data and the HTML content file.",
+  "tags": [
+    "post",
+    "sitemap"
+  ],
+  "enabled": "1",
+  "robots": "index,follow"
+}

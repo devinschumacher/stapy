@@ -1,0 +1,15 @@
+{
+  "content": "content/blog/how-to-display-a-list-of-items.html",
+  "meta_title": "How to display a list of items?",
+  "meta_description": "Create a list of items by querying into json data",
+  "title": "How to display a list of items?",
+  "date": "2021-09-06",
+  "author": "John Doe",
+  "intro": "Create a list of items by querying json data.",
+  "tags": [
+    "post",
+    "sitemap"
+  ],
+  "enabled": "1",
+  "robots": "index,follow"
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: none; display: block; shape-rendering: auto;" width="60px" height="60px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+<rect fill="#6a6a6a" x="5" y="5" width="40" height="40" rx="0" ry="0">
+<animate attributeName="x" dur="2.1s" repeatCount="indefinite" keyTimes="0;0.083;0.25;0.333;0.5;0.583;0.75;0.833;1" values="5;55;55;55;55;5;5;5;5" begin="-1.9s"/>
+<animate attributeName="y" dur="2.1s" repeatCount="indefinite" keyTimes="0;0.083;0.25;0.333;0.5;0.583;0.75;0.833;1" values="5;55;55;55;55;5;5;5;5" begin="-1.4s"/>
+</rect>
+<rect fill="#979797" x="5" y="5" width="40" height="40" rx="0" ry="0">
+<animate attributeName="x" dur="2.1s" repeatCount="indefinite" keyTimes="0;0.083;0.25;0.333;0.5;0.583;0.75;0.833;1" values="5;55;55;55;55;5;5;5;5" begin="-1.2s"/>
+<animate attributeName="y" dur="2.1s" repeatCount="indefinite" keyTimes="0;0.083;0.25;0.333;0.5;0.583;0.75;0.833;1" values="5;55;55;55;55;5;5;5;5" begin="-0.7s"/>
+</rect>
+<rect fill="#bdbdbd" x="5" y="5" width="40" height="40" rx="0" ry="0">
+<animate attributeName="x" dur="2.1s" repeatCount="indefinite" keyTimes="0;0.083;0.25;0.333;0.5;0.583;0.75;0.833;1" values="5;55;55;55;55;5;5;5;5" begin="-0.5s"/>
+<animate attributeName="y" dur="2.1s" repeatCount="indefinite" keyTimes="0;0.083;0.25;0.333;0.5;0.583;0.75;0.833;1" values="5;55;55;55;55;5;5;5;5" begin="0s"/>
+</rect>
+</svg>

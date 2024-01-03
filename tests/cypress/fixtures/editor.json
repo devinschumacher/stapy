@@ -1,0 +1,47 @@
+{
+  "url": {
+    "homepage": "/",
+    "pages": "/_editor/",
+    "media": "/_editor/media",
+    "edit": "/_editor/page?edit="
+  },
+  "pages": {
+    "js": {
+      "path": "cypress/script.js",
+      "_full_path": "cypress/script",
+      "_page_type": "js",
+      "enabled": "1",
+      "title": "Javascript page!",
+      "content": "alert('Hello World'); ",
+      "tags": []
+    },
+    "html": {
+      "path": "cypress/page-html.html",
+      "_full_path": "cypress/page-html",
+      "_page_type": "html",
+      "enabled": "1",
+      "title": "Page with HTML content!",
+      "tags": [
+        "sitemap"
+      ],
+      "content": "<p>This is a page with sentence in french:</p> <blockquote>Dès Noël où un zéphyr haï me vêt de glaçons würmiens je dîne d’exquis rôtis de bœuf au kir à l’aÿ d’âge mûr & cætera !</blockquote> ",
+      "meta_title": "Page HTML Meta Title",
+      "meta_description": "Page HTML Meta Description",
+      "robots": "index,follow"
+    },
+    "md": {
+      "path": "cypress/page-md.html",
+      "_full_path": "cypress/page-md",
+      "_page_type": "md",
+      "enabled": "1",
+      "title": "Page with Markdown content!",
+      "tags": [
+        "sitemap"
+      ],
+      "content": "This is a page with sentence in french: Dès Noël où un zéphyr haï me vêt de glaçons würmiens je dîne d’exquis rôtis de bœuf au kir à l’aÿ d’âge mûr & cætera ! <script type=\"text/javascript\" src=\"/script.js\"></script> ",
+      "meta_title": "Page Markdown Meta Title",
+      "meta_description": "Page Markdown Meta Description",
+      "robots": "index,follow"
+    }
+  }
+}

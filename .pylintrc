@@ -1,0 +1,11 @@
+[MAIN]
+disable=C0116,C0115,W0703,W0613,W0719,R1713,W0123
+method-rgx=[a-z_][a-zA-Z0-9_]{2,}$
+max-line-length=120
+max-args=8
+max-returns=10
+max-locals=20
+max-branches=25
+max-public-methods=30
+max-statements=60
+max-attributes=8

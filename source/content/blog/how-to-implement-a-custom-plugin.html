@@ -1,0 +1,44 @@
+<h2>Step 1</h2>
+
+<p>
+  Create a new script in the <code>plugins</code> directory:
+</p>
+
+<pre><code>plugins
++------ build_date.py
+</code></pre>
+
+<h2>Step 2</h2>
+
+<p>
+  Add a method that returns today's date:
+</p>
+
+<pre><code>from datetime import datetime
+
+
+def now(data: dict, args: dict) -&gt; str:
+    if &#x27;format&#x27; not in args:
+        args[&#x27;format&#x27;] = &#x27;%B %d, %Y at %H:%M&#x27;
+    return datetime.now().strftime(args[&#x27;format&#x27;])
+</code></pre>
+
+<h2>Step 3</h2>
+
+<p>
+  Call the plugin method in any template file:
+</p>
+
+<pre><code>&lt;p&gt;
+    Last refresh: \{: build_date.now :\}
+&lt;/p&gt;
+</code></pre>
+
+<p>
+  Update the default date format with an option:
+</p>
+
+<pre><code>&lt;p&gt;
+    Last refresh: \{: build_date.now format:&quot;%m/%d/%Y %H:%M&quot; :\}
+&lt;/p&gt;
+</code></pre>

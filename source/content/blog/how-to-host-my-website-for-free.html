@@ -1,0 +1,177 @@
+<p>
+    There are many tools to publish your site for free:
+</p>
+
+<ul>
+    <li>Cloudflare Pages</li>
+    <li>GitHub Pages</li>
+    <li>Gitlab Pages</li>
+    <li>Vercel</li>
+    <li>Netlify</li>
+    <li>Render</li>
+</ul>
+
+<p>
+    And certainly still others.
+</p>
+
+<p>
+    In any case, you just have to share the content of the <code>web/prod</code> folder. Here is the way to host your website on <strong>GitHub Pages</strong>.
+</p>
+
+<p>
+    <strong>Notes:</strong>
+</p>
+
+<ul>
+    <li>Free hosting on GitHub Pages is only available with a <strong>public repository</strong>. <strong>Never share or upload sensitives data</strong>. Private repository for GitHub Pages is only available with Team plan.</li>
+    <li>Cloudflare, Vercel, Netlify and Render clone a GitHub or a Gitlab repository, public or private.</li>
+    <li>I recommend always using a <code>www</code> subdomain</li>
+    <li>When you add or update files on GitHub, you have to wait a few minutes before publishing</li>
+</ul>
+
+<h2>Step 1</h2>
+
+<p>
+    Without a personal domain name, the website URL will be: <code>https://username.github.io</code>, where username is your username on GitHub.
+</p>
+
+<p>
+    You can order a domain name from your favorite registrar like <a href="https://www.gandi.net">Gandi</a>, or do it later.
+</p>
+
+<h2>Step 2</h2>
+
+<p>Configure Stapy with the full host as the base URL for the prod environment:</p>
+
+<pre>source
++--- layout
+     +--- common.json
+</pre>
+
+<pre>{
+  "url.local": "http://127.0.0.1:1985/",
+  "url.prod": "https://www.example.com/"
+}
+</pre>
+
+<p>
+    The website URL will be here: <code>https://www.example.com/</code>. Without a personal domain name, set <code>https://username.github.io/</code>.
+</p>
+
+<h2>Step 3</h2>
+
+<p>
+    <em>This step is optional without a personal domain mame.</em>
+</p>
+
+<p>
+    We need to tell GitHub Pages our domain name. That can be done by creating a CNAME file containing the domain.
+</p>
+
+<pre>source
++--- assets
+     +--- CNAME
+</pre>
+
+<pre>www.example.com
+</pre>
+
+<p>
+    The CNAME file in the <code>assets</code> directory will be copied to the website root.
+</p>
+
+<h2>Step 4</h2>
+
+<p>
+    Build the website:
+</p>
+
+<pre>python stapy.py build
+</pre>
+
+<p>
+    On Windows double-click on <code>build.py</code>.
+</p>
+
+<p>
+    The website files to be published are now in the <code>web/prod</code> directory.
+</p>
+
+<h2>Step 5</h2>
+
+<p>
+    On GitHub, create a new public repository named <code>username.github.io</code> where username is your username on GitHub.
+</p>
+
+<h2>Step 6</h2>
+
+<p>
+    Add files to the GitHub repository with:
+</p>
+
+<h3>1. Web interface (beginner)</h3>
+
+<p>
+    You can upload files from the <code>web/prod</code> directory to GitHub with the web interface.
+</p>
+
+<p>
+    Drag all files, then commit.
+</p>
+
+<h3>2. Git Client (intermediate)</h3>
+
+<p>
+    On Windows or macOS you can use a Git client like <a href="https://desktop.github.com/">GitHub Desktop</a>.
+</p>
+
+<p>
+    On Linux <a href="https://www.gitkraken.com/">GitKraken</a> is a good client.
+</p>
+
+<h3>3. Command line (expert)</h3>
+
+<p>
+    Commit and push all the static files (<code>web/prod</code>) on the GitHub repository.
+</p>
+
+<pre>cd web/prod
+git init
+git add -A
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/{username}/{username}.github.io.git
+git push -u origin main
+</pre>
+
+<h2>Step 7</h2>
+
+<p>
+    <em>This step is optional without a personal domain mame.</em>
+</p>
+
+<p>
+    From the registrar, edit the DNS zone and add a CNAME record for the <code>www</code> subdomain:
+</p>
+
+<ul>
+    <li><strong>Type:</strong> CNAME</li>
+    <li><strong>Host Name:</strong> www</li>
+    <li><strong>Points to:</strong> username.github.io</li>
+    <li><strong>TTL:</strong> 1 hour</li>
+</ul>
+
+<h2>Step 8</h2>
+
+<p>
+    On your GitHub repository, go to <strong>Settings</strong> > <strong>Pages</strong>. Enable <strong>Pages</strong> for the root directory on the main branch.
+</p>
+
+<p>
+    Add your custom domain (www.example.com) and enforce HTTPS.
+</p>
+
+<p>
+    <strong>Note:</strong> GitHub waits for DNS propagation before generating the SSL certificate. This can take a while.
+</p>

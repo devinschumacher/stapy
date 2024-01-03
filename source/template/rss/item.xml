@@ -1,0 +1,7 @@
+<item>
+  <title>{{ $title }}</title>
+  <pubDate>{{ $date_rfc_822 }}</pubDate>
+  <link>{{ url }}{{ $_path }}</link>
+  <guid>{{ url }}{{ $_path }}</guid>
+  <description>{{ $intro }}</description>
+</item>

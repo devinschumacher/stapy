@@ -1,0 +1,15 @@
+{
+  "content": "content/blog/how-to-add-data-to-a-page-with-a-plugin.html",
+  "meta_title": "How to add dynamic data to a page with a plugin?",
+  "meta_description": "How to add dynamic data to a page with a plugin",
+  "title": "How to add dynamic data to a page with a plugin?",
+  "date": "2021-11-10",
+  "author": "John Doe",
+  "intro": "Add or update current page data with dynamic variables",
+  "tags": [
+    "post",
+    "sitemap"
+  ],
+  "enabled": "1",
+  "robots": "index,follow"
+}

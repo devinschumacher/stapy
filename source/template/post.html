@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ lang }}" xml:lang="{{ lang }}">
+    <head>
+        {% block.head %}
+    </head>
+    <body>
+        <header>
+            <div id="header-content">
+                {% block.header %}
+            </div>
+        </header>
+        <main>
+            <div id="main-content">
+                <p class="breadcrumb">
+                    <a href="{{ url }}">Articles</a> : {{ title }}
+                </p>
+                <div class="content">
+                    <article>
+                        <div class="article-content">
+                            <h1><a href="{{ url }}{{ _path }}">{{ title }}</a></h1>
+                            <p>
+                                <span>{{ date_full }} by {{ author }}</span>
+                            </p>
+                            <p>
+                                {{ intro }}
+                            </p>
+                            {: post.picture src:"{{ picture }}" alt:"{{ title }}" :}
+                        </div>
+                    </article>
+                    {% content %}
+                </div>
+                <hr class="end-post" />
+                <div class="more-posts">
+                    <div class="row">
+                        {: post.more_posts :}
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div id="footer-content">
+                {% block.footer %}
+            </div>
+        </footer>
+        {% block.script %}
+    </body>
+</html>

@@ -1,0 +1,27 @@
+image: alpine/3.17
+packages:
+  - py3-pip
+  - hut
+oauth: pages.sr.ht/PAGES:RW
+environment:
+  site: preview.stapy.net
+sources:
+  - https://git.sr.ht/~magentix/stapy
+tasks:
+  - code-analyser: |
+      cd stapy
+      pip install pylint
+      python -m pylint stapy.py plugins/*.py
+  - unit-testing: |
+      cd stapy
+      cp stapy.py tests/stapy.py
+      python tests/run.py
+  - build: |
+      cd stapy
+      echo '{"url.prod": "https://'"$site"'/", "robots.prod": "noindex,nofollow", "directive.prod": "Disallow: /"}' > source/layout/common.json
+      rm -rf web/prod/.gitkeep
+      python stapy.py build
+  - package: |
+      tar -C stapy/web/prod -cz . > site.tar.gz
+  - upload: |
+      hut pages publish --not-found /404.html -d $site site.tar.gz

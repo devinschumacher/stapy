@@ -1,0 +1,15 @@
+{
+  "content": "content/blog/how-to-host-my-website-for-free.html",
+  "meta_title": "How to host my static website for free?",
+  "meta_description": "Host your static website for free on a CDN.",
+  "title": "How to host my static website for free?",
+  "date": "2021-09-10",
+  "author": "John Doe",
+  "intro": "Host your static website for free on a CDN.",
+  "tags": [
+    "post",
+    "sitemap"
+  ],
+  "enabled": "1",
+  "robots": "index,follow"
+}

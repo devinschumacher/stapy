@@ -1,0 +1,15 @@
+{
+  "content": "content/blog/how-to-add-a-new-block.html",
+  "meta_title": "How to add a new block?",
+  "meta_description": "Learn in this article how to add a new block. We want to add a banner in the default template.",
+  "title": "How to add a new block?",
+  "date": "2022-06-07",
+  "author": "John Doe",
+  "intro": "Learn how to add a new block in the template. We want to add a banner below the main menu.",
+  "tags": [
+    "post",
+    "sitemap"
+  ],
+  "enabled": "1",
+  "robots": "index,follow"
+}

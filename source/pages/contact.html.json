@@ -1,0 +1,13 @@
+{
+  "content": "content/contact.html",
+  "meta_title": "Contact",
+  "meta_description": "Contact me",
+  "title": "Contact",
+  "tags": [
+    "sitemap",
+    "menu"
+  ],
+  "menu.position": "30",
+  "enabled": "1",
+  "robots": "index,follow"
+}

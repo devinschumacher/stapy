@@ -1,0 +1,15 @@
+{
+  "content": "content/blog/how-to-display-a-list-of-links.html",
+  "meta_title": "How to display a list of links?",
+  "meta_description": "Create a list of links by querying the pages",
+  "title": "How to display a list of links?",
+  "date": "2021-08-25",
+  "author": "John Doe",
+  "intro": "Create a list of links by querying the pages.",
+  "tags": [
+    "post",
+    "sitemap"
+  ],
+  "enabled": "1",
+  "robots": "index,follow"
+}

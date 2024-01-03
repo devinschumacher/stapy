@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <atom:link href="{{ url }}rss.xml" rel="self" type="application/rss+xml" />
+    <title>{{ rss.title }}</title>
+    <description>{{ rss.description }}</description>
+    <link>{{ url }}</link>
+    {% rss.item ~ SELECT ITEMS 1-10 WHERE "post" in tags ORDER BY date desc %}
+  </channel>
+</rss>

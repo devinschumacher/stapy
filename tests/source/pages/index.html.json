@@ -1,0 +1,14 @@
+{
+  "title": "It works!",
+  "title.prod": "It works in prod!",
+  "content": "content/index.html",
+  "content.staging": "",
+  "query_test": "1",
+  "common": "false",
+  "tags": ["test"],
+  "boolean_search": true,
+  "integer_search": 20,
+  "float_search": 19.9,
+  "list_search": [2, 3, 5],
+  "empty_search": ""
+}

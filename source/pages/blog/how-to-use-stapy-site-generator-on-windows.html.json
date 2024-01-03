@@ -1,0 +1,15 @@
+{
+  "content": "content/blog/how-to-use-stapy-site-generator-on-windows.html",
+  "meta_title": "How to use Stapy on Windows?",
+  "meta_description": "Install Python and start to create your static website on Windows.",
+  "title": "How to use Stapy on Windows?",
+  "date": "2021-07-14",
+  "author": "John Doe",
+  "intro": "Install Python and start to create your static website on Windows.",
+  "tags": [
+    "post",
+    "sitemap"
+  ],
+  "enabled": "1",
+  "robots": "index,follow"
+}

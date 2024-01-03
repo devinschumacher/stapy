@@ -1,0 +1,3 @@
+{% query_block feeling:"I'm ~ \"happy\"" ~ SELECT ITEMS 1-10 WHERE "test" in tags ORDER BY query_test asc %}
+{% query_block ~ SELECT ITEMS 1-10 WHERE "my tag" in tags ORDER BY query_test asc %}
+{% query_block delimiter:" - " ~ SELECT ITEMS 1-10 WHERE "test" in tags ORDER BY query_test asc %}

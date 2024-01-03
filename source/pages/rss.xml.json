@@ -1,0 +1,8 @@
+{
+  "content": "content/rss.xml",
+  "rss.item": "template/rss/item.xml",
+  "rss.title": "Stapy",
+  "rss.description": "John Doe, Software developer",
+  "enabled": "1",
+  "title": "RSS Feed"
+}

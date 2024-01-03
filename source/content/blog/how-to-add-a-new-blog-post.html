@@ -1,0 +1,57 @@
+<h2>Step 1</h2>
+
+<p>
+    Add a new json file in the <code>source/pages/blog</code> directory:
+</p>
+
+<pre>
+<strong>source</strong>
++--- <strong>pages</strong>
+     +--- <strong>blog</strong>
+          +--- my-first-blog-post.html.json
+</pre>
+
+<p>
+    The file must contain all the data for the blog post:
+</p>
+
+<pre>
+{
+  "<strong>content</strong>": "content/blog/my-first-blog-post.html",
+
+  "<strong>meta_title</strong>": "My first blog post",
+  "<strong>meta_description</strong>": "This is my first blog post",
+  "<strong>title</strong>": "My first blog post",
+  "<strong>date</strong>": "2032-12-10",
+  "<strong>author</strong>": "John Doe",
+  "<strong>intro</strong>": "This is my first blog post.",
+
+  "<strong>tags</strong>": ["post", "sitemap"]
+}
+</pre>
+
+<h2>Step 2</h2>
+
+<p>
+    Create the blog post content file:
+</p>
+
+<pre>
+<strong>source</strong>
++--- <strong>content</strong>
+     +--- <strong>blog</strong>
+          +--- my-first-blog-post.html
+</pre>
+
+<p>
+    Write the HTML content of the new post:
+</p>
+
+<pre><code>&lt;p&gt;
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+&lt;/p&gt;
+</code></pre>
+
+<p>
+    Browse to <code>http://127.0.0.1:1985/blog/my-first-blog-post.html</code>.
+</p>

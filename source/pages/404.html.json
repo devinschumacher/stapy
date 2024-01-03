@@ -1,0 +1,8 @@
+{
+  "content": "content/404.html",
+  "meta_title": "Page not found",
+  "meta_description": "The requested URL was not found on this server",
+  "title": "Page not found",
+  "robots": "noindex,nofollow",
+  "enabled": "1"
+}

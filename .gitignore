@@ -1,0 +1,10 @@
+**/__pycache__
+venv
+secure
+tests/stapy.py
+tests/plugins/editor
+tests/package.json
+tests/package-lock.json
+tests/node_modules
+tests/cypress/screenshots
+tests/cypress/videos

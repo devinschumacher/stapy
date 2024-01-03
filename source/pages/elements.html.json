@@ -1,0 +1,13 @@
+{
+  "content": "content/elements.html",
+  "meta_title": "Elements",
+  "meta_description": "Default theme elements",
+  "title": "Elements",
+  "tags": [
+    "sitemap",
+    "menu"
+  ],
+  "menu.position": "20",
+  "enabled": "1",
+  "robots": "index,follow"
+}

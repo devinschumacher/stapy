@@ -1,0 +1,15 @@
+{
+  "content": "content/blog/how-to-implement-a-custom-plugin.html",
+  "meta_title": "How to implement a custom plugin?",
+  "meta_description": "How to implement a custom plugin?",
+  "title": "How to implement a custom plugin?",
+  "date": "2022-12-07",
+  "author": "John Doe",
+  "intro": "Implement a custom plugin to display the current date in a template",
+  "tags": [
+    "post",
+    "sitemap"
+  ],
+  "enabled": "1",
+  "robots": "index,follow"
+}

@@ -1,0 +1,14 @@
+{
+  "template": "template/default.html",
+
+  "block.head": "template/block/head.html",
+  "block.header": "template/block/header.html",
+  "block.footer": "template/block/footer.html",
+  "block.script": "template/block/script.html",
+  "block.menu": "template/block/header/menu.html",
+  "block.menu.link": "template/block/header/menu/link.html",
+  "block.article": "template/block/article.html",
+
+  "robots": "index,follow",
+  "lang": "en"
+}

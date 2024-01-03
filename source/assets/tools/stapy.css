@@ -1,0 +1,92 @@
+/**
+ * Copyright (c) 2023, Magentix
+ * This code is licensed under simplified BSD license
+ */
+
+.overlay {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.modal {
+    background: #fff;
+    position: fixed;
+    left: calc(50% - 265px);
+    /* The top value is calculated in JS to center modal vertically */
+    top: 100px;
+    /*
+    top: 50%;
+    transform: translateY(-50%);
+    */
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.5);
+    padding: 40px 30px;
+    width: 470px;
+}
+
+.modal-inner {
+    height: 100%;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.modal.info {
+    border-bottom: 8px solid #2E5C70;
+}
+
+.modal.success {
+    border-bottom: 8px solid #3B702E;
+}
+
+.modal.warning {
+    border-bottom: 8px solid #ECC51E;
+}
+
+.modal.error {
+    border-bottom: 8px solid #962828;
+}
+
+.modal.center {
+    text-align: center;
+}
+
+.modal .modal-close {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    text-decoration: none;
+    color: #777;
+    font-family: monospace;
+    font-size: 36px;
+}
+
+.modal .modal-close:before {
+    content: '\00d7';
+}
+
+.modal .modal-close span {
+    display: none;
+}
+
+.loader {
+    /* Use loader.gif instead of loader.svg for compatibility with Internet Explorer & Edge 12-18 */
+    background: url(loader.svg) no-repeat center center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+@media (max-width: 550px) {
+    .modal {
+        width: auto;
+        left: 10px;
+        right: 10px;
+    }
+}

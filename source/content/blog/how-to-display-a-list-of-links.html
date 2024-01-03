@@ -1,0 +1,148 @@
+<h2>Step 1</h2>
+
+<p>
+    Open json file of the pages you want in the list:
+</p>
+
+<pre>source
++--- pages
+     +--- my.page.html.json
+</pre>
+
+<p>
+    Add a new tag in the tag list (here <code>custom-list</code>), and a position in the list:
+</p>
+
+<pre>{
+    ...
+    "title": "My Page",
+    ...
+    "tags": ["post", "sitemap", "custom-list"],
+    "custom.list.position": 10,
+    ...
+}
+</pre>
+
+<h2>Step 2</h2>
+
+<p>
+    Open the HTML layout configuration file:
+</p>
+
+<pre>source
++--- layout
+     +--- html.json
+</pre>
+
+<p>Add 2 new entries with the block template path:</p>
+
+<pre>{
+    ...
+    "custom.list": "template/block/custom-list.html",
+    "custom.list.link": "template/block/custom-list/link.html",
+    ...
+}
+</pre>
+
+<h2>Step 3</h2>
+
+<p>
+    Create the new block template files with the HTML content:
+</p>
+
+<pre>source
++--- template
+     +--- block
+          +--- custom-list.html
+          +--- custom-list
+               +--- link.html
+</pre>
+
+<p>
+    The <code>custom-list.html</code> template contains a query expression to retrieve all the pages with <code>custom-list</code> tag. We limit to the 100 first pages:
+</p>
+
+<pre><code>&lt;ul&gt;
+    \{% custom.list.link ~ SELECT ITEMS 1-100 WHERE "custom-list" in tags ORDER BY custom.list.position asc %\}
+&lt;/ul&gt;
+</code></pre>
+
+<p>
+    The <code>custom-list/link.html</code> template contains the HTML link element:
+</p>
+
+<pre><code>&lt;li&gt;&lt;a href=&quot;\{\{ url \}\}\{\{ $_path \}\}&quot;&gt;\{\{ $title \}\}&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+
+<h2>Step 4 (optional)</h2>
+
+<p>
+    Update the child data or template with a plugin.
+</p>
+
+<p>
+    Add a new plugin file named <code>customlist.py</code> in the <code>plugin</code> directory:
+</p>
+
+<pre>plugins
++--- customlist.py
+</pre>
+
+<h3>Example 1: Add a class</h3>
+
+<pre><code>&lt;!-- template/block/custom-list/link.html --&gt;
+
+&lt;li class=&quot;\{\{ custom.list.item.class \}\}&quot;&gt;
+    &lt;a href=&quot;\{\{ url \}\}\{\{ $_path \}\}&quot;&gt;\{\{ $title \}\}&lt;/a&gt;
+&lt;/li&gt;
+</code></pre>
+
+<pre># plugins/customlist.py
+
+def child_content_query_result(pages: list, args: dict) -> list:
+    if args['key'] != 'custom.list.link':
+        return pages
+    iterator = 0
+    for key, page in pages:
+        pages[iterator][1]['custom.list.item.class'] = ''
+        if page['_full_path'] == args['path'].lstrip('/'):
+            pages[iterator][1]['custom.list.item.class'] = 'active'
+        iterator += 1
+    return pages
+
+</pre>
+
+<h3>Example 2: Update the template</h3>
+
+<pre><code>&lt;!-- template/block/custom-list/current.html --&gt;
+
+&lt;li&gt;&lt;span&gt;\{\{ $title \}\}&lt;/span&gt;&lt;/li&gt;
+</code></pre>
+
+<pre># plugins/customlist.py
+
+def child_content_query_result(pages: list, args: dict) -> list:
+    if args['key'] != 'custom.list.link':
+        return pages
+    iterator = 0
+    for key, page in pages:
+        if page['_full_path'] == args['path'].lstrip('/'):
+            pages[iterator][1]['_child_template'] = 'template/block/custom-list/current.html'
+        iterator += 1
+    return pages
+
+</pre>
+
+<h3>Example 3: Remove an element</h3>
+
+<pre># plugins/customlist.py
+
+def child_content_query_result(pages: list, args: dict) -> list:
+    if args['key'] != 'custom.list.link':
+        return pages
+    for key, page in pages:
+        if page['_full_path'] == args['path'].lstrip('/'):
+            pages.remove((key, page))
+    return pages
+
+</pre>

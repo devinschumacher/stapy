@@ -1,0 +1,71 @@
+<h2>Step 1</h2>
+
+<p>
+    Add a new plugin file in the <code>plugins</code> directory. A plugin is a Python script.
+</p>
+
+<pre>
+<strong>plugins</strong>
++--- data.py
+</pre>
+
+<h2>Step 2</h2>
+
+<p>
+    We want to add a new dynamic variable. The event is <strong>page_data_merged</strong>. This event is used after merging layouts and page data.
+</p>
+
+<p>
+    In this example, we add the current year to be added in the copyright.
+</p>
+
+<pre>
+from datetime import datetime
+
+
+def page_data_merged(data: dict, args: dict) -> dict:
+    data['year'] = datetime.now().year
+    return data
+</pre>
+
+<p>
+    In the footer block template, we now add the variable:
+</p>
+
+<pre><code>&lt;p&gt;Copyright @ \{\{ year \}\} Company&lt;/p&gt;
+</code></pre>
+
+<h3>Arguments</h3>
+
+<p>
+    In the <code>args</code> argument, we find the current page path:
+</p>
+
+<pre>
+def page_data_merged(data: dict, args: dict) -> dict:
+    if args['path'] == '/index.html':
+        data['welcome'] = 'Welcome to the homepage!'
+    return data
+</pre>
+
+<p>
+    The <code>data</code> argument contains the merged json data for the page:
+</p>
+
+<pre>
+def page_data_merged(data: dict, args: dict) -> dict:
+    prefix = 'Stapy - '
+    if 'meta_title' in data and prefix not in data['meta_title']:
+        data['meta_title'] = prefix + data['meta_title']
+    return data
+</pre>
+
+<h3>Debug</h3>
+
+<p>
+    To visualize final page data, add the <code>_page</code> key before the page path in the URL:
+</p>
+
+<p>
+    <code>http://127.0.0.1:1985/_page/index.html</code>
+</p>

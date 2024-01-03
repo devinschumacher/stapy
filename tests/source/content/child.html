@@ -1,0 +1,12 @@
+{% child_block message:"How are you?" complex:"1 + 2 \" ~ 3" foo:bar + child/data %}
+{% child_block
+    message:"How are you?"
+    complex:"1 + 2 \" ~ 3"
+    foo:bar
+    ~ SELECT ITEMS WHERE "is child" in search
+%}
+{% simple_block %}
+{% simple_block
+    complex:"1 + 2 \" ~ 3"
+    message:"Good job"
+%}

@@ -1,0 +1,6 @@
+{
+  "title": "Inception",
+  "content": "content/inception.html",
+  "block.inception": "template/block/inception.html",
+  "message": "Hello Dom Cobb"
+}

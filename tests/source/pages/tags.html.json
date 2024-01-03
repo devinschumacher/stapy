@@ -1,0 +1,6 @@
+{
+  "content": "content/tags.html",
+  "block.tag": "template/block/tag.html",
+  "string": "go ~ I'm +  where:\"here\" + \" and:'you + him/her'?",
+  "categories": ["go ~ I'm +  where:\"here\" + \" and:'you + him/her'?"]
+}

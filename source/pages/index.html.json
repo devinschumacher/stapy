@@ -1,0 +1,13 @@
+{
+  "content": "content/index.html",
+  "meta_title": "Articles about Stapy",
+  "meta_description": "My personal blog about Stapy",
+  "title": "Articles",
+  "tags": [
+    "sitemap",
+    "menu"
+  ],
+  "menu.position": "10",
+  "enabled": "1",
+  "robots": "index,follow"
+}

@@ -1,0 +1,404 @@
+{
+  "_editor": {
+    "protected_pages": [
+      "robots.txt",
+      "sitemap.xml"
+    ],
+    "editor_switcher": {
+      "Full": "/_editor",
+      "Content": "/_editor_c"
+    },
+    "media": {
+      "root": "media",
+      "snippets": ["filepath", "html", "markdown"],
+      "extensions": ["svg" ,"png", "jpg", "jpeg", "gif", "webp", "apng", "avif", "mp4", "m4v", "pdf", "txt", "gz", "zip", "rar", "tar", "bz2", "xz"]
+    },
+    "grid": {
+      "actions": [
+        {
+          "path": "build/",
+          "class": "button-secondary pure-button",
+          "label": "Build"
+        },
+        {
+          "path": "page/",
+          "class": "pure-button pure-button-primary",
+          "label": "Add",
+          "data": {
+            "cy": "add"
+          }
+        }
+      ],
+      "columns": {
+        "title": {
+          "label": "Title"
+        },
+        "date": {
+          "label": "Date"
+        },
+        "enabled": {
+          "label": "Enabled",
+          "options": [
+            {
+                "values": ["", "1", 1, true],
+                "label": "Yes"
+            },
+            {
+                "values": ["0", 0, false],
+                "label": "No"
+            }
+          ]
+        }
+      },
+      "query": "SELECT ITEMS ORDER BY date desc"
+    },
+    "form": {
+      "actions": {
+        "back": true,
+        "reset": true,
+        "data": true,
+        "view": true,
+        "delete": true,
+        "save": true
+      },
+      "fieldsets": [
+        {
+          "label": "General",
+          "column": "left",
+          "fields": {
+            "_full_path": {
+              "label": "Page path",
+              "required": true,
+              "save": false
+            },
+            "_page_type": {
+              "label": "Page type",
+              "required": true,
+              "save": false,
+              "type": "select",
+              "options": [
+                {
+                  "value": "html",
+                  "label": "HTML"
+                },
+                {
+                  "value": "txt",
+                  "label": "Text"
+                },
+                {
+                  "value": "md",
+                  "label": "Markdown"
+                },
+                {
+                  "value": "xml",
+                  "label": "XML"
+                },
+                {
+                  "value": "json",
+                  "label": "JSON"
+                },
+                {
+                  "value": "css",
+                  "label": "CSS"
+                },
+                {
+                  "value": "js",
+                  "label": "Javascript"
+                }
+              ]
+            },
+            "enabled": {
+              "label": "Enabled",
+              "required": true,
+              "type": "select",
+              "options": [
+                {
+                    "value": 1,
+                    "label": "Yes"
+                },
+                {
+                    "value": 0,
+                    "label": "No"
+                }
+              ]
+            },
+            "title": {
+              "label": "Title",
+              "required": true
+            },
+            "tags": {
+              "label": "Tags",
+              "type": "multiselect",
+              "options": [
+                {
+                  "value": "post",
+                  "label": "Post"
+                },
+                {
+                  "value": "sitemap",
+                  "label": "Sitemap"
+                },
+                {
+                  "value": "menu",
+                  "label": "Menu"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "label": "SEO",
+          "column": "left",
+          "depends": [
+            {
+              "field": "_page_type",
+              "values": ["html"]
+            }
+          ],
+          "fields": {
+            "meta_title": {
+              "label": "Meta Title",
+              "type": "textarea",
+              "style": "min-height:100px",
+              "line_break": false
+            },
+            "meta_description": {
+              "label": "Meta Description",
+              "type": "textarea",
+              "style": "min-height:100px",
+              "line_break": false
+            },
+            "robots": {
+              "label": "Robots",
+              "required": true,
+              "type": "select",
+              "options": [
+                {
+                  "value": "index,follow",
+                  "label": "index,follow"
+                },
+                {
+                  "value": "noindex,nofollow",
+                  "label": "noindex,nofollow"
+                },
+                {
+                  "value": "index,nofollow",
+                  "label": "index,nofollow"
+                },
+                {
+                  "value": "noindex,follow",
+                  "label": "noindex,follow"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "label": "Blog Post",
+          "column": "left",
+          "depends": [
+            {
+              "field": "_page_type",
+              "values": ["html"]
+            },
+            {
+              "field": "tags",
+              "values": ["post"]
+            }
+          ],
+          "fields": {
+            "date": {
+              "label": "Date",
+              "required": true,
+              "type": "date"
+            },
+            "author": {
+              "label": "Author",
+              "required": true
+            },
+            "intro": {
+              "label": "Intro",
+              "required": true,
+              "type": "textarea",
+              "style": "min-height:100px",
+              "line_break": false
+            },
+            "picture": {
+              "label": "Picture",
+              "type": "image",
+              "directory": "media/blog",
+              "extensions": ["svg" ,"png", "jpg", "jpeg", "gif", "webp", "apng", "avif"]
+            }
+          }
+        },
+        {
+          "label": "RSS",
+          "column": "left",
+          "depends": [
+            {
+              "field": "_page_type",
+              "values": ["xml"]
+            },
+            {
+              "field": "_full_path",
+              "values": ["rss.xml"]
+            }
+          ],
+          "fields": {
+            "rss.title": {
+              "label": "Title",
+              "required": true
+            },
+            "rss.description": {
+              "label": "Description",
+              "required": true
+            }
+          }
+        },
+        {
+          "label": "Menu",
+          "column": "left",
+          "depends": [
+            {
+              "field": "_page_type",
+              "values": ["html"]
+            },
+            {
+              "field": "tags",
+              "values": ["menu"]
+            }
+          ],
+          "fields": {
+            "menu.position": {
+              "label": "Position in menu"
+            }
+          }
+        },
+        {
+          "label": "Content",
+          "column": "right",
+          "fields": {
+            "content": {
+              "label": "Content",
+              "type": "block",
+              "mode": "$_page_type",
+              "focus": true,
+              "save_dir": "content"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "_editor_c": {
+    "protected_pages": [
+      "robots.txt",
+      "sitemap.xml"
+    ],
+    "editor_switcher": {
+      "Full": "/_editor",
+      "Content": "/_editor_c"
+    },
+    "media": {
+      "root": "media",
+      "snippets": ["filepath", "html", "markdown"],
+      "extensions": ["svg" ,"png", "jpg", "jpeg", "gif", "webp", "apng", "avif", "mp4", "m4v", "pdf", "txt", "gz", "zip", "rar", "tar", "bz2", "xz"]
+    },
+    "grid": {
+      "columns": {
+        "title": {
+          "label": "Title"
+        },
+        "date": {
+          "label": "Date"
+        },
+        "enabled": {
+          "label": "Enabled",
+          "options": [
+            {
+                "values": ["", "1", 1, true],
+                "label": "Yes"
+            },
+            {
+                "values": ["0", 0, false],
+                "label": "No"
+            }
+          ]
+        }
+      },
+      "query": "SELECT ITEMS ORDER BY date desc"
+    },
+    "form": {
+      "actions": {
+        "back": true,
+        "reset": true,
+        "data": true,
+        "view": true,
+        "delete": false,
+        "save": true
+      },
+      "fieldsets": [
+        {
+          "label": "Content",
+          "column": "right",
+          "fields": {
+            "_full_path": {
+              "label": "Page path",
+              "required": true,
+              "save": false,
+              "hide": true
+            },
+            "_page_type": {
+              "label": "Page type",
+              "required": true,
+              "save": false,
+              "hide": true,
+              "type": "select",
+              "options": [
+                {
+                  "value": "html",
+                  "label": "HTML"
+                },
+                {
+                  "value": "txt",
+                  "label": "Text"
+                },
+                {
+                  "value": "md",
+                  "label": "Markdown"
+                },
+                {
+                  "value": "xml",
+                  "label": "XML"
+                },
+                {
+                  "value": "json",
+                  "label": "JSON"
+                },
+                {
+                  "value": "css",
+                  "label": "CSS"
+                },
+                {
+                  "value": "js",
+                  "label": "Javascript"
+                }
+              ]
+            },
+            "title": {
+              "label": "Title",
+              "readonly": true
+            },
+            "content": {
+              "label": "Content",
+              "type": "block",
+              "mode": "$_page_type",
+              "focus": true,
+              "save_dir": "content"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
